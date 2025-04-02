@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 223 18% 97%;
+    --foreground: 217 33% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 33% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 33% 17%;
+
+    --primary: 217 33% 17%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 217 33% 17%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 48 100% 50%;
+    --accent-foreground: 217 33% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 4.9%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 217 33% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 217 33% 17%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 48 80% 50%;
+    --accent-foreground: 217 33% 17%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-fluid {
+    @apply w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-12;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm border border-white/10 shadow-md bg-white/30 dark:bg-mirakiBlue-800/30;
+  }
+  
+  .image-loading {
+    @apply relative overflow-hidden bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-image-shimmer bg-[length:1000px_100%];
+  }
+  
+  .section-heading {
+    @apply relative font-display font-medium text-3xl md:text-4xl lg:text-5xl mb-8;
+  }
+  
+  .section-heading::after {
+    @apply content-[""] absolute bottom-0 left-0 w-16 h-1 bg-mirakiGold translate-y-4;
+  }
+  
+  .page-section {
+    @apply py-16 md:py-24;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  /* Card stacking effect */
+  .carousel-stack {
+    @apply relative;
+  }
+  
+  .artwork-card-wrapper {
+    @apply transition-all duration-500 ease-in-out;
+  }
+  
+  .artwork-card-wrapper.center {
+    @apply z-20 scale-100 brightness-100;
+  }
+  
+  .artwork-card-wrapper:not(.center) {
+    @apply z-10 scale-90 brightness-85;
+  }
+}
+
+@layer utilities {
+  .brightness-85 {
+    filter: brightness(0.85);
+  }
+}
